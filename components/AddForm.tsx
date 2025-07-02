@@ -1,5 +1,5 @@
 "use client";
-import { addAction } from "@/utils/AddAction";
+import { addAction } from "@/utils/addAction";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
