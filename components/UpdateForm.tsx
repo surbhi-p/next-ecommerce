@@ -32,14 +32,14 @@ const UpdateForm = ({productId}: {productId: string}) => {
   }, [product])
 
   async function ClientAddAction(formData: FormData){
-    const {error, success} = await updateAction(formData, productId);
-    if(error){
+    const result = await updateAction(formData, productId);
+    if (result?.error) {
       // Toast notification
-      toast.error(error)
+      toast.error(result.error);
     }
-    if(success){
+    if (result?.success) {
       // Toast notification
-      toast.success(success)
+      toast.success(result.success);
       router.push("/");
       setImageURL(""); // Reset image URL after successful submission 
     }

@@ -9,14 +9,14 @@ const AddForm = () => {
   const router = useRouter();
   const [imageURL, setImageURL] = useState("");
   async function ClientAddAction(formData: FormData){
-    const {error, success} = await addAction(formData);
-    if(error){
+    const result = await addAction(formData);
+    if(result?.error){
       // Toast notification
-      toast.error(error)
+      toast.error(result.error)
     }
-    if(success){
+    if(result?.success){
       // Toast notification
-      toast.success(success)
+      toast.success(result.success)
       router.push("/");
       setImageURL(""); // Reset image URL after successful submission 
     }
